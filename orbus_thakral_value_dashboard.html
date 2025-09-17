@@ -12,11 +12,12 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0a0f1c 0%, #1a1f3a 50%, #2d3561 100%);
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafb 0%, #f1f5f9 100%);
+            color: #1e293b;
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            padding: 20px;
         }
         
         .dashboard {
@@ -27,25 +28,27 @@
         
         .header {
             text-align: center;
-            padding: 50px 0;
-            background: linear-gradient(135deg, #3b82f6, #1e40af, #1e3a8a);
+            padding: 50px;
+            background: white;
             border-radius: 25px;
             margin-bottom: 40px;
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #0078d4;
             position: relative;
             overflow: hidden;
         }
         
         .header::before {
-            content: "";
+            content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(0,120,212,0.05), rgba(220,38,38,0.05), rgba(16,185,129,0.05));
+            border-radius: 50%;
+            transform: translate(50%, -50%);
         }
         
         @keyframes shine {
@@ -60,15 +63,19 @@
         
         .header h1 {
             font-size: 3rem;
-            font-weight: 900;
+            font-weight: 700;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: #0078d4;
+            position: relative;
+            z-index: 2;
         }
         
         .header .subtitle {
             font-size: 1.4rem;
-            opacity: 0.95;
-            font-weight: 300;
+            color: #64748b;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
         }
         
         .trust-badges {
@@ -91,62 +98,83 @@
         
         .capabilities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
         }
         
         .capability-card {
-            background: linear-gradient(145deg, #1e293b, #334155);
-            border-radius: 20px;
-            padding: 35px;
-            border: 2px solid transparent;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0078d4;
             position: relative;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         
         .capability-card::before {
-            content: "";
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #10b981, #3b82f6);
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(0,120,212,0.05), rgba(16,185,129,0.05));
+            border-radius: 50%;
         }
         
         .capability-card:hover {
             transform: translateY(-10px) scale(1.02);
-            border-color: #3b82f6;
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
         }
         
         .capability-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
-            border-radius: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0078d4, #106ebe);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            font-size: 2rem;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         
         .capability-title {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            color: #60a5fa;
+            margin-bottom: 12px;
+            color: #1e293b;
+            line-height: 1.3;
         }
         
         .capability-description {
-            font-size: 1.05rem;
-            color: #cbd5e1;
-            margin-bottom: 20px;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
         
         .capability-benefits {
@@ -154,10 +182,11 @@
         }
         
         .capability-benefits li {
-            padding: 8px 0;
-            padding-left: 30px;
+            padding: 6px 0;
+            padding-left: 25px;
             position: relative;
-            color: #e2e8f0;
+            color: #475569;
+            font-size: 0.9rem;
         }
         
         .capability-benefits li:before {
@@ -166,27 +195,30 @@
             left: 0;
             color: #10b981;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
         }
         
         .competitive-advantage {
-            background: linear-gradient(135deg, #1e40af, #3730a3, #581c87);
+            background: white;
             border-radius: 25px;
             padding: 50px;
             margin: 50px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #0078d4;
         }
         
         .competitive-advantage::before {
-            content: "";
+            content: '';
             position: absolute;
-            top: -100px;
-            left: -100px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, rgba(0,120,212,0.05), rgba(16,185,129,0.05));
             border-radius: 50%;
         }
         
@@ -196,6 +228,7 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 2;
+            color: #1e293b;
         }
         
         .advantage-grid {
@@ -206,34 +239,37 @@
         }
         
         .advantage-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
             padding: 30px;
             border-radius: 20px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #e2e8f0;
             position: relative;
             z-index: 2;
+            color: #1e293b;
         }
         
         .advantage-number {
             font-size: 3rem;
             font-weight: 900;
-            color: #fbbf24;
+            color: #0078d4;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .advantage-title {
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
+            color: #1e293b;
         }
         
         .mizuho-specific {
-            background: linear-gradient(145deg, #065f46, #047857);
+            background: white;
             border-radius: 25px;
             padding: 50px;
             margin: 50px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #10b981;
         }
         
         .mizuho-specific h2 {
@@ -241,7 +277,7 @@
             font-weight: 700;
             margin-bottom: 30px;
             text-align: center;
-            color: #6ee7b7;
+            color: #1e293b;
         }
         
         .mizuho-grid {
@@ -251,35 +287,40 @@
         }
         
         .mizuho-card {
-            background: linear-gradient(145deg, #064e3b, #065f46);
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
             border-radius: 15px;
             padding: 30px;
-            border: 2px solid #10b981;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #10b981;
             transition: all 0.3s ease;
+            color: #1e293b;
         }
         
         .mizuho-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .mizuho-card h3 {
             font-size: 1.4rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 15px;
-            color: #6ee7b7;
+            color: #1e293b;
         }
         
         .mizuho-card p {
-            color: #a7f3d0;
+            color: #64748b;
             line-height: 1.6;
         }
         
         .implementation-flow {
-            background: linear-gradient(145deg, #1e293b, #334155);
+            background: white;
             border-radius: 25px;
             padding: 50px;
             margin: 50px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #0078d4;
         }
         
         .implementation-flow h2 {
@@ -287,7 +328,7 @@
             font-weight: 700;
             margin-bottom: 40px;
             text-align: center;
-            color: #60a5fa;
+            color: #1e293b;
         }
         
         .flow-steps {
@@ -298,24 +339,26 @@
         }
         
         .flow-step {
-            background: linear-gradient(145deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
             border-radius: 15px;
             padding: 25px;
             text-align: center;
-            border: 2px solid #3b82f6;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0078d4;
             position: relative;
             transition: all 0.3s ease;
+            color: #1e293b;
         }
         
         .flow-step:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
         .step-number {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            background: linear-gradient(135deg, #0078d4, #106ebe);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -323,33 +366,37 @@
             margin: 0 auto 20px;
             font-size: 1.5rem;
             font-weight: bold;
+            color: white;
         }
         
         .step-title {
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
-            color: #60a5fa;
+            color: #1e293b;
         }
         
         .roi-showcase {
-            background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b);
+            background: white;
             border-radius: 25px;
             padding: 50px;
             margin: 50px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid #dc2626;
         }
         
         .roi-showcase::before {
-            content: "";
+            content: '';
             position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, rgba(220,38,38,0.1), rgba(185,28,28,0.1));
             border-radius: 50%;
         }
         
@@ -359,6 +406,7 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 2;
+            color: #1e293b;
         }
         
         .roi-tagline {
@@ -640,26 +688,32 @@
             </div>
         </div>
 
-        <div class="final-cta">
-            <h2>Transform. Smarter. Together.</h2>
-            <p>OrbusInfinity provides the visualization platform that transforms your Mizuho banking blueprint from concept into compelling, interactive reality. While competitors deliver theoretical strategies, you deliver working demonstrations that prove transformation value immediately.</p>
-            
-            <div class="cta-highlights">
-                <div class="cta-highlight">
-                    <h3>Market Leadership</h3>
-                    <p>Gartner Magic Quadrant Leader with proven banking sector expertise</p>
+        <div class="navigation-section" style="margin-bottom: 40px; text-align: center;">
+            <a href="index.html" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #0078d4, #106ebe); color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,120,212,0.3);">← Back to Main Dashboard</a>
+            <a href="visual_joint_blueprint.html" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; margin-left: 15px; box-shadow: 0 4px 12px rgba(220,38,38,0.3);">View Blueprint Dashboard →</a>
+            <a href="metric-validation.html" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; margin-left: 15px; box-shadow: 0 4px 12px rgba(220,38,38,0.3);">View Reference Validation →</a>
+        </div>
+
+        <div class="final-cta" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; border-left: 6px solid #10b981; text-align: center;">
+            <h2 style="color: #1e293b; margin-bottom: 20px; font-size: 2.2rem;">Transform. Smarter. Together.</h2>
+            <p style="color: #64748b; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">OrbusInfinity provides the visualization platform that transforms your Mizuho banking blueprint from concept into compelling, interactive reality. While competitors deliver theoretical strategies, you deliver working demonstrations that prove transformation value immediately.</p>
+
+            <div class="cta-highlights" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div class="cta-highlight" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #0078d4; margin-bottom: 10px; font-size: 1.2rem;">Market Leadership</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5;">Gartner Magic Quadrant Leader with proven banking sector expertise</p>
                 </div>
-                <div class="cta-highlight">
-                    <h3>Immediate Impact</h3>
-                    <p>Transform complex operations into executive-ready business cases</p>
+                <div class="cta-highlight" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #10b981; margin-bottom: 10px; font-size: 1.2rem;">Immediate Impact</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5;">Transform complex operations into executive-ready business cases</p>
                 </div>
-                <div class="cta-highlight">
-                    <h3>Competitive Edge</h3>
-                    <p>Interactive demonstrations that differentiate from static consulting</p>
+                <div class="cta-highlight" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #dc2626; margin-bottom: 10px; font-size: 1.2rem;">Competitive Edge</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5;">Interactive demonstrations that differentiate from static consulting</p>
                 </div>
-                <div class="cta-highlight">
-                    <h3>Validated Results</h3>
-                    <p>600+ enterprises trust OrbusInfinity for transformation success</p>
+                <div class="cta-highlight" style="background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 25px; border-radius: 15px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #8b5cf6; margin-bottom: 10px; font-size: 1.2rem;">Validated Results</h3>
+                    <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5;">600+ enterprises trust OrbusInfinity for transformation success</p>
                 </div>
             </div>
         </div>

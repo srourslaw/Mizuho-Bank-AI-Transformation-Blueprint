@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Technology Stack - Thakral One</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafb 0%, #f1f5f9 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #0078d4;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .partnership-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .logo-container img {
+            max-height: 60px;
+            max-width: 150px;
+        }
+
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        .partnership-symbol {
+            font-size: 1.5rem;
+            color: #0078d4;
+            font-weight: bold;
+        }
+
+        .executive-summary {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0078d4;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .dashboards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .dashboard-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0078d4, #106ebe);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,120,212,0.2);
+        }
+
+        .dashboard-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0078d4;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dashboard-icon {
+            font-size: 1.8rem;
+        }
+
+        .dashboard-desc {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background: #f1f5f9;
+            color: #0078d4;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .view-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0078d4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .view-button:hover {
+            background: #106ebe;
+            transform: translateX(5px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dashboard-card:nth-child(1) { animation-delay: 0.2s; }
+        .dashboard-card:nth-child(2) { animation-delay: 0.4s; }
+        .dashboard-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @media (max-width: 768px) {
+            .dashboards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partnership-logos {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="partnership-logos">
+                <div class="logo-container">
+                    <img src="https://www.thakralone.com/wp-content/uploads/2020/08/Thakral-One-Logo.png" alt="Thakral One Logo">
+                    <div class="logo-subtitle">IT Consulting Partner</div>
+                </div>
+                <div class="partnership-symbol">×</div>
+                <div class="logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/512px-Microsoft_logo.svg.png" alt="Microsoft Logo">
+                    <div class="logo-subtitle">Technology Platform</div>
+                </div>
+            </div>
+            
+            <h1>Microsoft Technology Stack</h1>
+            <p>Executive Dashboard Suite - Strategic Implementation & Innovation</p>
+        </div>
+
+        <div class="executive-summary">
+            <strong style="color: #0078d4;">Executive Overview:</strong> 
+            Thakral One's comprehensive Microsoft ecosystem implementations showcase our deep expertise in delivering enterprise-scale solutions. These dashboards demonstrate successful transformations for major clients using cutting-edge Microsoft technologies, delivering measurable business value through unified analytics, scalable cloud infrastructure, and enterprise-grade security.
+        </div>
+
+        <div class="dashboards-grid">
+            <a href="ms_stack_visualization.html" class="dashboard-card">
+                <div class="dashboard-title">
+                    <span class="dashboard-icon">🏗️</span>
+                    Core Microsoft Stack Architecture
+                </div>
+                <div class="dashboard-desc">
+                    Comprehensive visualization of our Microsoft Fabric-based analytics platform, showcasing the complete technology stack from SAP integration to Power BI reporting with enterprise-grade Azure infrastructure.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-badge">Microsoft Fabric</span>
+                    <span class="tech-badge">Azure DevOps</span>
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">Azure SQL</span>
+                    <span class="tech-badge">Entra ID</span>
+                </div>
+                <div class="view-button">
+                    View Architecture →
+                </div>
+            </a>
+
+            <a href="Gemlife_project.html" class="dashboard-card">
+                <div class="dashboard-title">
+                    <span class="dashboard-icon">🏘️</span>
+                    GemLife Implementation
+                </div>
+                <div class="dashboard-desc">
+                    Enterprise transformation for GemLife supporting 400+ internal users and 1,200+ external stakeholders. Demonstrates SSO, document management, and automated workflows using the complete Microsoft ecosystem.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-badge">Active Directory</span>
+                    <span class="tech-badge">SharePoint</span>
+                    <span class="tech-badge">Power Automate</span>
+                    <span class="tech-badge">Azure Functions</span>
+                    <span class="tech-badge">Microsoft Graph</span>
+                </div>
+                <div class="view-button">
+                    View Project →
+                </div>
+            </a>
+
+            <a href="Manilla_water_project.html" class="dashboard-card">
+                <div class="dashboard-title">
+                    <span class="dashboard-icon">💧</span>
+                    Manila Water ELHP Project
+                </div>
+                <div class="dashboard-desc">
+                    Advanced analytics platform leveraging Microsoft Fabric for SAP S/4 HANA integration with OneLake medallion architecture, delivering comprehensive business intelligence and operational reporting.
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-badge">Microsoft Fabric</span>
+                    <span class="tech-badge">OneLake</span>
+                    <span class="tech-badge">Fabric Dataflows</span>
+                    <span class="tech-badge">SAP Integration</span>
+                    <span class="tech-badge">Python Notebooks</span>
+                </div>
+                <div class="view-button">
+                    View Project →
+                </div>
+            </a>
+        </div>
+
+        <div class="footer">
+            <h3 style="color: #0078d4; margin-bottom: 15px;">Strategic Partnership Value</h3>
+            <p style="color: #64748b; line-height: 1.6;">
+                These implementations exemplify Thakral One's comprehensive Microsoft expertise, delivering enterprise-scale solutions that balance innovation, security, and cost-effectiveness while providing robust foundations for future digital transformation initiatives.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add click tracking for analytics
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.dashboard-title').textContent;
+                console.log(`Dashboard accessed: ${title}`);
+            });
+        });
+    </script>
+</body>
+</html>
