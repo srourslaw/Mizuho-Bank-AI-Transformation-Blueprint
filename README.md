@@ -1,1 +1,1 @@
-# Mizuho-Bank-AI-Transformation-Blueprint---Joint-Thakral-One-OrbusInfinity-Implementation-Guide
+# Mizuho-Bank-AI-Transformation-Blueprint
